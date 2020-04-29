@@ -1,0 +1,8 @@
+.scroll {
+	overflow: auto; 
+	max-height: 400px;
+}
+
+.btn-space{
+	margin: 3px;
+}

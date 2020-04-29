@@ -1,0 +1,15 @@
+<a *ngIf="producoesPorTipo" (click)="changeIcon()" class="btn btn-lg btn-block {{classe}}" data-toggle="collapse" href=#{{index}} role="button" aria-expanded="false" aria-controls="expandir">{{tipo}} <small>({{producoesPorTipo.length}})</small> <span class="pull-right">{{icon}}</span></a>
+<div class="collapse" id={{index}}>
+    <div class="card card-body">
+        <div class="scroll">
+            <table class="table table-striped">
+                <tbody>
+                <tr *ngFor="let prod of producoesPorTipo | orderBy: key : reverse">
+                    <td>{{prod.ano}}</td>
+                    <td>{{prod.tituloPortugues}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

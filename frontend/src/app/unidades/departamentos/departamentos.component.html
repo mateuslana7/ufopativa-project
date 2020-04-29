@@ -1,0 +1,11 @@
+<div class="container">
+	<h1>Departamentos</h1>
+	<hr>
+	<table class="table table-striped">
+		<tbody>
+			<tr *ngFor="let depto of departamentos">
+				<td><a [routerLink]="['/departamentos/'+depto.id]">{{depto.id}} {{depto.nome}} </a><br></td>
+			</tr>
+		</tbody>
+	</table>
+</div>

@@ -1,0 +1,15 @@
+
+<div class="input-icon">
+    <i class="fa fa-search icon"></i>
+    <input class="search-bar input-field" [formControl]="campoDePesquisa" placeholder="Faça uma busca...">
+</div>
+<div *ngIf="resultado && campoDePesquisa.value != ''" class="col-xs-12 col-sm-12 col-md-12 search-results">
+
+    <ua-result *ngIf="resultado.servidores.length > 0" [resultado]="resultado.servidores" [titulo]="'pessoas'" [valor]="verificaResultado()"></ua-result>
+    <ua-result *ngIf="resultado.departamentos.length > 0" [resultado]="resultado.departamentos" [titulo]="'departamentos'" [valor]="verificaResultado()"></ua-result>
+    <ua-result *ngIf="resultado.unidades.length > 0" [resultado]="resultado.unidades" [titulo]="'unidades'" [valor]="verificaResultado()"></ua-result>
+
+</div>
+
+
+

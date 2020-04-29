@@ -1,0 +1,55 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+  color: #555;
+}
+
+p {
+  text-align: justify;
+}
+
+a {
+  color: #962038;
+}
+
+/* HOME */
+/*Jumbotrons*/
+
+.jumbotron {
+  background-color: #fff;
+  text-align:center;
+}
+.jumbotron h2 {
+  font-size: 40px;
+}
+
+.welcome-jumbotron h1 {
+  margin-bottom: 60px;
+  font-size: 60px;
+}
+
+.welcome-jumbotron p {
+  margin-bottom: 60px;
+  font-size: 30px;
+}
+
+/*Review*/
+.review-score{
+  font-size: 30px;
+  font-weight: bold;
+}
+
+/* HEADER */
+
+.main-header .navbar {
+    background-color: #962038;
+}
+
+/*VER DEPOIS*/
+.nav>li>a:focus, .nav>li>a:hover {
+    text-decoration: none;
+    background-color: #eee;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

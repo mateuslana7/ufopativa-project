@@ -1,0 +1,13 @@
+<!-- ORIENTACOES CONCLUIDAS -->
+<div class="col-xs-12 col-sm-6 col-md-6" *ngIf="(orientacoes?.mest > 0 || orientacoes?.dout > 0 || orientacoes?.posDout > 0 || orientacoes?.outra > 0)">
+    <h2><b>Orientações Concluídas</b></h2>
+    <hr>
+    <div class="well well-small">
+        <h4><span><b>Mestrado:</b></span> {{orientacoes?.mest}}</h4>
+        <h4><span><b>Doutorado:</b></span> {{orientacoes?.dout}}</h4>
+        <h4><span><b>Pós-Doutorado:</b></span> {{orientacoes?.posDout}}</h4>
+        <h4><span><b>Outras:</b></span> {{orientacoes?.outra}}</h4>
+    </div>
+</div>
+
+<!-- COLOCAR O GRAFICO DPS -->

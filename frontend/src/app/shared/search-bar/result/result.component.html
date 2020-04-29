@@ -1,0 +1,9 @@
+<div class="col-xs-12 col-sm-12 col-md-{{valor}}">
+    <p><b>{{titulo | uppercase}}</b></p>
+    <li *ngFor="let result of resultado">
+        <div class="result-background">
+            <a [routerLink]="['/'+titulo+'/' + result?.id]">{{result.nome | uppercase}}</a>
+        </div>
+    </li>
+    <p *ngIf="resultado && resultado?.length > 0">Exibindo {{resultado?.length}} resultado(s)</p>
+</div>

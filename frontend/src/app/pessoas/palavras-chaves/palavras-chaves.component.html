@@ -1,0 +1,8 @@
+<div class="col-xs-12 col-sm-6 col-md-6" *ngIf="palavrasChaves?.length > 0">
+    <h2><b>Palavras Chave </b> <small>Por ordem de utilização</small></h2>
+    <hr>
+    <div class="scroll">
+        <a class="btn btn-success btn-md btn-space" data-toggle="tooltip" data-placement="top" title="Utilizada {{palavraChv.numeroUtilizacoes}} vez(es)" *ngFor="let palavraChv of palavrasChaves | orderBy: key : reverse">{{palavraChv.palavra}}</a>
+    </div>
+    <hr>
+</div>

@@ -1,0 +1,12 @@
+<div class="container">
+	<h1>Pessoas</h1>
+	<hr>
+	<table class="table table-striped">
+		<tbody>
+			<tr *ngFor="let pessoa of pessoas">
+				<!-- OLHAR COMO FAZER O REDIRECIONAMENTO -->
+				<td><a [routerLink]="['/pessoas/'+pessoa.id]">{{pessoa.id}} {{pessoa.nomeCompleto}} ({{pessoa.idLattes}})</a><br></td>
+			</tr>
+		</tbody>
+	</table>
+</div>

@@ -1,0 +1,40 @@
+<div class="col-xs-12 col-sm-6 col-md-6" *ngIf="areas?.length > 0">
+    <h2><b>Especialidades</b></h2>
+    <hr>
+    <div *ngFor="let area of areas">
+      <div class="columnOne" [id]="'accordion' + area.id" role="tablist" aria-multiselectable="true">
+            <div role="tab" [id]="'heading' + area.id">
+                <a *ngIf="area.especialidade" class="btn btn-warning btn-lg btn-block" (click)="changeIcon(i)" role="button" data-toggle="collapse" [attr.data-parent]="'#accordion' + area.id"
+                    [href]="'#collapse' + area.id + i" aria-expanded="true" [attr.aria-controls]="'collapse' + area.id + i">
+                    {{area.especialidade}} <span class="pull-right">+</span>
+                </a>
+                <a *ngIf="!area.especialidade && area.subArea" class="btn btn-warning btn-lg btn-block" (click)="changeIcon(i)" role="button" data-toggle="collapse" [attr.data-parent]="'#accordion' + area.id"
+                    [href]="'#collapse' + area.id + i" aria-expanded="true" [attr.aria-controls]="'collapse' + area.id + i">
+                    {{area.subArea}} <span class="pull-right">+</span>
+                </a>
+                <a *ngIf="!area.especialidade && !area.subArea" class="btn btn-warning btn-lg btn-block" (click)="changeIcon(i)" role="button" data-toggle="collapse" [attr.data-parent]="'#accordion' + area.id"
+                    [href]="'#collapse' + area.id + i" aria-expanded="true" [attr.aria-controls]="'collapse' + area.id + i">
+                    {{area.nomeArea}}<span class="pull-right">+</span>
+                </a>
+                <div [id]="'collapse' + area.id + i" class="panel-collapse collapse out" role="tabpanel" [attr.aria-labelledby]="'heading' + area.id">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <td><b>Grande Área</b></td>
+                          <td><b>Área</b></td>
+                          <td><b>Sub-área</b></td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>{{grandeAreaFilter(area.grandeArea)}}</td>
+                          <td>{{area.nomeArea}}</td>
+                          <td>{{area.subArea}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                </div>
+            </div>
+      </div>
+    </div>
+</div>

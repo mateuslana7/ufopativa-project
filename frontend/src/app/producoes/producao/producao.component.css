@@ -1,0 +1,27 @@
+.producao-bib{
+	background: #299587;
+	border-color: #299587;
+}
+.producao-bib:hover{
+	filter: brightness(80%);
+	border-color: #299587;
+	/* background-color: #1e6d63; */
+}
+
+/*.producao-tec{
+	background: #3996D7;
+	border: #3996D7;
+}
+.producao-tec:hover{
+	background: #3996D7;
+	border: #3996D7;
+}*/
+
+.btn{
+	margin-bottom: 5px;
+}
+
+.scroll {
+	overflow: auto; 
+	max-height: 400px;
+}

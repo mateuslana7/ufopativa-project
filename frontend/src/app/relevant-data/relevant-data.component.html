@@ -1,0 +1,94 @@
+<div class="container">
+
+	<div class="col-xs-12 col-sm-12 col-md-12">
+		<h1><b>Dados Relevantes</b></h1>
+		<hr>
+	</div>
+	<div class="col-xs-12 col-sm-6 col-md-6">
+		<table class="table table-striped table-bordered">
+			<tbody *ngIf="numeros">
+				<tr>
+					<td>NÚMERO DE SERVIDORES DA UFOP</td>
+					<td>{{numeros?.totalServidores}}</td>
+				</tr>
+				<tr>
+					<td>NÚMERO DE SERVIDORES COM LATTES</td>
+					<td>{{numeros?.totalServComLattes}} ({{calculaPercentServComLattes()}}%)</td>
+				</tr>
+				<tr>
+					<td>NÚMERO DE UNIDADES CADASTRADAS</td>
+					<td>{{numeros?.totalUnidades}}</td>
+				</tr>
+				<tr>
+					<td>NÚMERO DE DEPARTAMENTOS CADASTRADOS</td>
+					<td>{{numeros?.totalDeptos}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="col-xs-12 col-sm-12 col-md-12">	
+		<h2><b>Unidades</b></h2>
+		<hr>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Unidade</th>
+					<th>Servidores</th>
+					<th>% do total de servidores</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let unid of unidades | orderBy: key : reverse; let i = index">
+					<td *ngIf="(i+1).toString().length == 1">0{{i+1}}</td>
+					<td *ngIf="(i+1).toString().length > 1">{{i+1}}</td>
+					<td><a [routerLink]="['/unidades/' + unid.id]">{{unid?.nome}}</a></td>
+					<td>{{unid.totalServidores}}</td>
+					<td>{{calculaPercentServ(unid.totalServidores)}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<!-- GRAFICO DE PRODUCAO BIBLIOGRAFICA -->
+	<div class="col-xs-12 col-sm-12 col-md-12">
+		<h2><b>Produção Bibliográfica</b></h2>
+		<hr>
+		<ua-loading *ngIf="!graficoProdBibRenderizou"></ua-loading>
+		<div class="card card-body">
+			<div class="chart-size" id="chartContainerProdBib" style="height: 370px; width: 100%;"></div>
+		</div>
+	</div>
+
+	<!-- GRAFICO DE ORIENTACOES -->
+	<!-- <ua-chart [titulo]="'Orientações Concluídas'" [orientacoes]="orientacoesConc" [nome]="'chartContainerOrient'"></ua-chart> -->
+	<div class="col-xs-12 col-sm-12 col-md-12">
+		<h2><b>Orientações Concluídas</b></h2>
+		<hr>
+		<ua-loading *ngIf="!graficoOrientConcRenderizou"></ua-loading>
+		<div class="card card-body">
+			<div class="chart-size" id="chartContainerOrient"></div>
+		</div>
+	</div>
+
+	<!-- GRAFICO DE SERVIDORES -->
+	<div class="col-xs-12 col-sm-12 col-md-12">
+		<h2><b>Servidores por unidade</b></h2>
+		<hr>
+		<div class="card card-body">
+			<div class="chart-size" id="chartContainerServ"></div>
+		</div>
+	</div>
+
+	<!-- GRAFICO DE PRODUCAO BIBLIOGRAFICA POR TIPO -->
+	<div class="col-xs-12 col-sm-12 col-md-12">
+		<h2><b>Produção Bibliográfica por Tipo</b></h2>
+		<hr>
+		<ua-loading *ngIf="!graficoProdBibRenderizou"></ua-loading>
+		<div class="card card-body">
+			<div class="chart-size" id="chartContainerProdBibPorTipo"></div>
+		</div>
+	</div>
+
+</div>

@@ -1,0 +1,12 @@
+<div class="container">
+	<h1>Unidades</h1>
+	<hr>
+	<table class="table table-striped">
+		<tbody>
+			<tr *ngFor="let unidade of unidades">
+				<!-- OLHAR COMO FAZER O REDIRECIONAMENTO -->
+				<td><a [routerLink]="['/unidades/'+unidade.id]">{{unidade.id}} {{unidade.nome}} ({{unidade.sigla}})</a><br></td>
+			</tr>
+		</tbody>
+	</table>
+</div>

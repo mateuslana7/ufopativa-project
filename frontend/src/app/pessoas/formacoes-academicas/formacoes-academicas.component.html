@@ -1,0 +1,18 @@
+<!-- <p>formacoes-academicas works!</p> -->
+<div class="col-xs-12 col-sm-6 col-md-6" *ngIf="formacoes?.length > 0">
+    <h2><b>Formação Acadêmica</b></h2>
+    <hr>
+    <table class="table table-striped">
+        <tbody>
+            <tr *ngFor="let formacao of formacoes">
+                <td>{{formacao.anoConclusao}}</td>
+                <td *ngIf="formacao.tipo === 'GRADUACAO'">Graduação</td>
+                <td *ngIf="formacao.tipo === 'MESTRADO'">Mestrado</td>
+                <td *ngIf="formacao.tipo === 'DOUTORADO'">Doutorado</td>
+                <td *ngIf="formacao.tipo === 'POS_DOUTORADO'">Pós-Doutorado</td>
+                <td>{{formacao.curso}}</td>
+                <td>{{formacao.instituicao}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

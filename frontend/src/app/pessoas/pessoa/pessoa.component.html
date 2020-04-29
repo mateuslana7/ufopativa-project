@@ -1,0 +1,84 @@
+<div class="container">
+	<div class="row">
+
+		<!-- DADOS BASICOS DO SERVIDOR -->
+		<div>
+			<h1 *ngIf="pessoa?.tipo == 'DOC'"><b>Servidor Docente</b></h1>
+			<h1 *ngIf="pessoa?.tipo == 'TA'">Servidor Técnico Administrativo</h1>
+			<h1 *ngElse>Servidor</h1>
+			<hr>
+			<h2>
+				<b>{{pessoa?.nomeCompleto}}</b>
+			</h2>
+
+			<div>
+				<b>UNIDADE: </b>
+				<a *ngIf="pessoa?.deptoUnid.unidade" [routerLink]="['/unidades/' + pessoa?.deptoUnid.unidade.id]">{{pessoa?.deptoUnid.unidade.nome | uppercase}} ({{pessoa?.deptoUnid.unidade.sigla}})</a>
+				<i *ngIf="!pessoa?.deptoUnid.unidade">SEM UNIDADE</i>
+				<br>
+				<b>DEPARTAMENTO: </b>
+				<a *ngIf="pessoa?.deptoUnid.nome" [routerLink]="['/departamentos/' + pessoa?.deptoUnid.id]">{{pessoa?.deptoUnid.nome | uppercase}}</a>
+				<br>
+				<b>LATTES: </b>
+				<a *ngIf="pessoa?.linkLattes" [href]="'http://'+pessoa?.linkLattes"> {{pessoa?.linkLattes}}</a>
+				<i *ngIf="!(pessoa?.linkLattes)">SEM LINK</i>
+				<br>
+				<div *ngIf="pessoa?.dataAtualizacao" ><b>ÚLTIMA ATUALIZAÇÃO DO LATTES: </b>{{pessoa?.dataAtualizacao | date: 'dd/MM/yyyy'}}</div>
+				<div *ngIf="pessoa?.nomesCitacoes" ><b>NOMES DE CITAÇÕES: </b>{{pessoa?.nomesCitacoes}} </div>
+			</div>
+			
+			<a *ngIf="(orientacoes?.mest > 0 || orientacoes?.dout > 0 || orientacoes?.posDout > 0 || orientacoes?.outra > 0)" 
+				class="btn btn-primary btn-lg" 
+				data-toggle="collapse" 
+				href="#expandirGrafico" 
+				role="button" 
+				aria-expanded="false"
+				aria-controls="expandir"
+				(click)="gerarGraficoOrientacoes()">
+				{{comandoDoBotao}} Gráficos
+			</a>
+		</div>
+		<hr>
+
+		<!-- GRAFICO DE ORIENTACOES -->
+		<div class="collapse" id="expandirGrafico">
+			<h2><b>Gráfico de Orientações Concluídas</b></h2>
+			<hr>
+			<div class="card card-body">
+				<div class="chart-margin" id="chartContainer" style="height: 370px; width: 100%; position: relative;"></div>
+			</div>
+		</div>
+
+		<!-- FORMACOES ACADEMICAS -->
+		<ua-formacoes-academicas [formacoes]="formacoesAcad"></ua-formacoes-academicas>
+
+		<!-- ORIENTACOES CONCLUIDAS -->
+		<ua-orientacoes-concluidas [orientacoes]="orientacoes"></ua-orientacoes-concluidas>
+
+		<!-- DIVISAO ENTRE OS ITENS -->
+		<div *ngIf="formacoesAcad && orientacoes" class="col-xs-12 col-sm-12 col-md-12"></div>
+
+		<!-- PROJETOS DE PESQUISA -->
+		<ua-projetos-de-pesquisa [projetos]="projetosPesq"></ua-projetos-de-pesquisa>
+
+		<!-- PRODUCOES -->
+		<ua-producoes *ngIf="producoes" [producoes]="producoes"></ua-producoes>
+
+		<!-- DIVISAO ENTRE OS ITENS -->
+		<div class="col-xs-12 col-sm-12 col-md-12"></div>
+
+		<!-- ESPECIALIDADES -->
+		<ua-areas *ngIf="areas" [areas]="areas"></ua-areas>
+		
+		<!-- PALAVRAS CHAVE -->
+		<ua-palavras-chaves [palavrasChaves]="palavrasChaves"></ua-palavras-chaves>
+
+		<div class="col-xs-12 col-sm-12 col-md-12"></div>
+
+		<!-- <div class="col-xs-12 col-sm-6 col-md-6">
+			<h2>Coautores<small> Total: X</small></h2>
+			<hr>
+		</div> -->
+
+	</div>
+</div>

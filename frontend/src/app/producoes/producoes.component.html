@@ -1,0 +1,32 @@
+<!-- PRODUCAO BIBLIOGRAFICA -->
+<div class="col-xs-12 col-sm-6 col-md-6" *ngIf="temProducoesBib()">
+    <h2><b>Produção Bibliográfica</b></h2>
+    <hr>
+    <ua-producao [producoesPorTipo]="producoes?.Artigo" [tipo]="'Artigo Publicado'" [index]="'1'" [classe]="'btn-info producao-bib'"></ua-producao>
+    <ua-producao [producoesPorTipo]="producoes?.TrabalhoEmEvento" [tipo]="'Trabalho em Evento'" [index]="'2'" [classe]="'btn-info producao-bib'"></ua-producao>
+    <ua-producao [producoesPorTipo]="producoes?.Livro" [tipo]="'Livro'" [index]="'3'" [classe]="'btn-info producao-bib'"></ua-producao>
+    <ua-producao [producoesPorTipo]="producoes?.CapituloDeLivro" [tipo]="'Capitulo de Livro'" [index]="'4'" [classe]="'btn-info producao-bib'"></ua-producao>
+    <ua-producao [producoesPorTipo]="producoes?.OutraProducaoBibliografica" [tipo]="'Outra Produção Bibliográfica'" [index]="'5'" [classe]="'btn-info producao-bib'"></ua-producao>
+</div>
+
+<!-- PRODUCAO TECNICA -->
+<div class="col-xs-12 col-sm-6 col-md-6" *ngIf="temProducoesTec()">
+    <h2><b>Produção Técnica</b></h2>
+    <hr>
+    <ua-producao [producoesPorTipo]="producoes?.Software" [tipo]="'Software'" [index]="'6'" [classe]="'btn-primary'"></ua-producao>
+    <ua-producao [producoesPorTipo]="producoes?.ProdutoTecnologico" [tipo]="'Produto Tecnológico'" [index]="'7'" [classe]="'btn-primary'"></ua-producao>
+    <ua-producao [producoesPorTipo]="producoes?.TrabalhoTecnico" [tipo]="'Trabalho Técnico'" [index]="'8'" [classe]="'btn-primary'"></ua-producao>
+    <ua-producao [producoesPorTipo]="producoes?.Patente" [tipo]="'Patente'" [index]="'9'" [classe]="'btn-primary'"></ua-producao>
+    <ua-producao [producoesPorTipo]="producoes?.OutraProducaoTecnica" [tipo]="'Outra Produção Técnica'" [index]="'10'" [classe]="'btn-primary'"></ua-producao>
+</div>
+
+<!-- PRODUCAO ARTISTICA CULTURAL -->
+<div class="col-xs-12 col-sm-6 col-md-6" *ngIf="temProducoesArtCult()">
+    <h2><b>Produção Artística Cultural</b></h2>
+    <hr>
+    <ua-producao [producoesPorTipo]="producoes?.ArteCenica" [tipo]="'Arte Cênica'" [index]="'11'" [classe]="'btn-info'"></ua-producao>
+    <ua-producao [producoesPorTipo]="producoes?.ArteVisual" [tipo]="'Arte Visual'" [index]="'12'" [classe]="'btn-info'"></ua-producao>
+    <ua-producao [producoesPorTipo]="producoes?.Musica" [tipo]="'Música'" [index]="'13'" [classe]="'btn-info'"></ua-producao>
+    <ua-producao [producoesPorTipo]="producoes?.OutraProducaoArtisticaCultural" [tipo]="'Outra Producção Artística Cultural'" [index]="'14'" [classe]="'btn-info'"></ua-producao>
+</div>
+
