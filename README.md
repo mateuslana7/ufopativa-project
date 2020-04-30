@@ -31,7 +31,7 @@ Para executar a aplicação primeiramente certifique-se que tem as ferramentas d
 
 ### 3.1 Backend
 
-Para executar o backend da aplicação primeiramente dê um build da mesma por meio da sua IDE de preferência ou abra o terminal no diretório do backend e execute `mvn install`. Em seguida, caso esteja em alguma IDE execute por meio dela, caso contrário execute o comando `mvn spring-boot:run` no terminal. Ao executar, antes do servidor estar pronto será executada a leitura dos do currículos em XML.
+As instruções serão adicionadas assim que o eu subir o backend.
 
 ### 3.2 Frontend
 
