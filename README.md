@@ -4,7 +4,7 @@
 
 A humanidade foi e continuará sendo movida pelo conhecimento e pelas inovações que são oriundas das pesquisas que são realizadas dia após dia no mundo inteiro. Atualmente, a UFOP conta com mais de mil e seiscentos servidores e, grande parte destes estão envolvidos em diversos projetos e realizam pesquisas e orientações nas mais diversas áreas de estudo presentes na universidade. 
 
-Este projeto teve como principal finalidade o desenvolvimento de um sistema que agrupe e organize em um banco de dados as informações, provenientes da Plataforma Lattes e da própria UFOP, que estejam relacionadas aos servidores que atuam na universidade. Além disso, o sistema teve como objetivo ser organizado, com uma interface amigável. 
+Este projeto de Monografia teve como principal finalidade o desenvolvimento de um sistema que agrupe e organize em um banco de dados as informações, provenientes da Plataforma Lattes e da própria UFOP, que estejam relacionadas aos servidores que atuam na universidade. Além disso, o sistema teve como objetivo ser organizado, com uma interface amigável. 
 
 Pensando no futuro suporte e manutenção que o NTI(Núcleo de Tecnologia da Informação) da UFOP possa dar ao sistema, as tecnologias escolhidas para o desenvolvimento da aplicação foram as utilizadas na maioria dos sistemas desenvolvidos por eles. Portanto utilizou-se as seguintes tecnologias:
 
@@ -36,4 +36,8 @@ As instruções serão adicionadas assim que o eu subir o backend.
 ### 3.2 Frontend
 
 Para executar o frontend da aplicação abra o terminal no diretório do mesmo e instale as dependências executando o comando `npm install`. Em seguida execute com o comando `ng serve` ou `npm start`.
+
+## Outras Informações
+
+No diretório 'doc' temos o texto da Monografica referente a este projeto e a apresentação utilizada no dia da banca. 
 
