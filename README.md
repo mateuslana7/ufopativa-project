@@ -35,5 +35,5 @@ Para executar o backend da aplicação primeiramente dê um build da mesma por m
 
 ### 3.2 Frontend
 
-Para executar o frontend da aplicação abra o terminal no diretório do mesmo e instale as dependências executando o comando `npm install`. Em seguida execute com o comando `ng serve` ou `npm start` para executar.
+Para executar o frontend da aplicação abra o terminal no diretório do mesmo e instale as dependências executando o comando `npm install`. Em seguida execute com o comando `ng serve` ou `npm start`.
 
