@@ -1,23 +1,28 @@
 <div class="container">
 	<div class="row">
 
-		<!-- DADOS BASICOS DO SERVIDOR -->
+		<!-- DADOS GERAIS DO SERVIDOR(POSSIVEL COMPONENTE) -->
 		<div>
 			<h1 *ngIf="pessoa?.tipo == 'DOC'"><b>Servidor Docente</b></h1>
 			<h1 *ngIf="pessoa?.tipo == 'TA'">Servidor Técnico Administrativo</h1>
 			<h1 *ngElse>Servidor</h1>
 			<hr>
+			<!-- COM IMAGEM -->
+			<!-- <div class="col-xs-12 col-sm-2 col-md-2">
+	            <img src="http://placehold.it/200x200" alt="" class="img-rounded img-responsive" />
+	        </div> -->
 			<h2>
 				<b>{{pessoa?.nomeCompleto}}</b>
 			</h2>
 
 			<div>
 				<b>UNIDADE: </b>
-				<a *ngIf="pessoa?.deptoUnid.unidade" [routerLink]="['/unidades/' + pessoa?.deptoUnid.unidade.id]">{{pessoa?.deptoUnid.unidade.nome | uppercase}} ({{pessoa?.deptoUnid.unidade.sigla}})</a>
-				<i *ngIf="!pessoa?.deptoUnid.unidade">SEM UNIDADE</i>
+				<a *ngIf="pessoa?.unidade" [routerLink]="['/unidades/' + pessoa?.unidade.id]">{{pessoa?.unidade.nome | uppercase}} ({{pessoa?.unidade.sigla}})</a>
+				<i *ngIf="!pessoa?.unidade">SEM UNIDADE</i>
 				<br>
 				<b>DEPARTAMENTO: </b>
-				<a *ngIf="pessoa?.deptoUnid.nome" [routerLink]="['/departamentos/' + pessoa?.deptoUnid.id]">{{pessoa?.deptoUnid.nome | uppercase}}</a>
+				<a *ngIf="pessoa?.departamento" [routerLink]="['/departamentos/' + pessoa?.departamento.id]">{{pessoa?.departamento.nome | uppercase}}</a>
+				<i *ngIf="!pessoa?.departamento">SEM DEPARTAMENTO</i>
 				<br>
 				<b>LATTES: </b>
 				<a *ngIf="pessoa?.linkLattes" [href]="'http://'+pessoa?.linkLattes"> {{pessoa?.linkLattes}}</a>

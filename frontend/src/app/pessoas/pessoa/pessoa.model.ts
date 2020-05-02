@@ -10,7 +10,8 @@ export interface Pessoa {
 	possuiLattes: String
 	nomesCitacoes: String[]
 	tipo: String
-	deptoUnid: DeptoUnid
+	departamento: Depto
+	unidade: Unid
 }
 
 export interface Unid {
@@ -19,8 +20,7 @@ export interface Unid {
 	sigla: String
 }
 
-export interface DeptoUnid {
+export interface Depto {
 	id: number
 	nome: String
-	unidade: Unid
 }

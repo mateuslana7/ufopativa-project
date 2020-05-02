@@ -12,3 +12,8 @@ export interface Departamento{
 	sigla: String
 	taotalServidores: number
 }
+
+export interface ServidorSemDepto {
+	id: number
+	nomeCompleto: string
+}

@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http'
 import {Observable} from 'rxjs'
 import {catchError} from 'rxjs/operators'
 
-import {Unidade, Departamento} from './unidade/unidade.model'
+import {Unidade, Departamento, ServidorSemDepto} from './unidade/unidade.model'
 import { ProducaoBib, OrientacaoConc } from '../relevant-data/relevant-data.model'
 
 import {UA_API} from '../app.api'
@@ -28,6 +28,12 @@ export class UnidadesService {
 
 	departamentosByIdUnidade(id: number): Observable<Departamento[]>{
 		return this.http.get<Departamento[]>(`${UA_API}/unidades/${id}/departamentos`).pipe(
+			catchError(ErrorHandler.handleError)
+		);
+	}
+
+	servsSemDeptoByIdUnidade(id: number): Observable<ServidorSemDepto[]>{
+		return this.http.get<ServidorSemDepto[]>(`${UA_API}/unidades/${id}/servs-sem-depto`).pipe(
 			catchError(ErrorHandler.handleError)
 		);
 	}

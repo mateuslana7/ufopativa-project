@@ -12,26 +12,10 @@
 		</div>
 
 	<!-- GRAFICO DE PRODUCAO BIBLIOGRAFICA -->
-	<div class="col-xs-12 col-sm-12 col-md-12">
-		<h3><b>Produção Bibliográfica</b></h3>
-		<hr>
-		<ua-loading *ngIf="!graficoProdBibRenderizou"></ua-loading>
-		<div class="card card-body">
-			<!-- <ua-loading></ua-loading> -->
-			<div class="chart-margin" id="chartContainerProdBib" style="height: 370px; width: 100%;"></div>
-		</div>
-	</div>
+	<ua-prod-stacked-chart [tipo]="'depto'"></ua-prod-stacked-chart>
 
 	<!-- GRAFICO DE ORIENTACOES -->
-	<!-- <ua-chart [titulo]="'Orientações Concluídas'" [orientacoes]="orientacoesConc" [nome]="'chartContainerOrient'"></ua-chart> -->
-	<div class="col-xs-12 col-sm-12 col-md-12">
-		<h3><b>Orientações Concluídas</b></h3>
-		<hr>
-		<ua-loading *ngIf="!graficoOrientConcRenderizou"></ua-loading>
-		<div class="card card-body">
-			<div id="chartContainerOrient" style="height: 370px; width: 100%;"></div>
-		</div>
-	</div>
+	<ua-orient-stacked-chart [tipo]="'depto'"></ua-orient-stacked-chart>
 
 	<div class="col-xs-12 col-sm-6 col-md-6">
 		<h3><b>Servidores <small>Por ordem alfabética</small></b></h3>

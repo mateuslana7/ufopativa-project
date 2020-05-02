@@ -36,7 +36,11 @@ import {CoreModule} from './core/core.module';
 import { LoadingComponent } from './shared/loading/loading.component';
 import { SearchBarComponent } from './shared/search-bar/search-bar.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { ResultComponent } from './shared/search-bar/result/result.component'
+import { ResultComponent } from './shared/search-bar/result/result.component';
+import { PieChartComponent } from './chart/pie-chart/pie-chart.component';
+import { ProdStackedChartComponent } from './chart/prod-stacked-chart/prod-stacked-chart.component';
+import { OrientStackedChartComponent } from './chart/orient-stacked-chart/orient-stacked-chart.component';
+import { ProdPieChartComponent } from './chart/prod-pie-chart/prod-pie-chart.component';
 
 
 
@@ -68,7 +72,11 @@ import { ResultComponent } from './shared/search-bar/result/result.component'
     PalavrasChavesComponent,
     LoadingComponent,
     SearchBarComponent,
-    ResultComponent
+    ResultComponent,
+    PieChartComponent,
+    ProdStackedChartComponent,
+    OrientStackedChartComponent,
+    ProdPieChartComponent
   ],
   imports: [
     BrowserModule,
