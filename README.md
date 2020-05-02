@@ -31,7 +31,7 @@ Para executar a aplicação primeiramente certifique-se que tem as ferramentas d
 
 ### 3.1 Backend
 
-As instruções serão adicionadas assim que o eu subir o backend.
+As instruções serão adicionadas assim que o eu o backend estiver aqui.
 
 ### 3.2 Frontend
 
