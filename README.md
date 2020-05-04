@@ -37,5 +37,7 @@ Para executar o frontend da aplicação abra o terminal no diretório do mesmo e
 
 ## Outras Informações
 
-No diretório 'doc' temos a apresentação referente a este projeto utilizada no dia da banca. 
+No diretório 'doc' temos a apresentação referente a este projeto utilizada no dia da banca. O texto da monografia pode ser encontrado no link abaixo.
+
+https://www.monografias.ufop.br/handle/35400000/2414
 
