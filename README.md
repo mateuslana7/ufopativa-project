@@ -31,7 +31,9 @@ Para executar a aplicação primeiramente certifique-se que tem as ferramentas d
 
 ### 3.1 Backend
 
-As instruções serão adicionadas assim que o eu o backend estiver aqui.
+**Obs.: Como esta aplicação lida com alguns dados extremamente importantes e pessoais relacionados aos servidores da instituição de ensino UFOP não é possível executar o backend sem uma autorização prévia que deve ser solicitada. O banco de dados está hospedado no GCloud e tem permissão de acesso restringida.** 
+
+Para executar o backend da aplicação primeiramente dê um build da mesma por meio da sua IDE de preferência ou abra o terminal no diretório do backend e execute `mvn install`. Em seguida, caso esteja em alguma IDE execute por meio dela, caso contrário execute o comando `mvn spring-boot:run` no terminal. Ao executar, caso o IP da sua máquina esteja resgistrado nas permissões de acesso ao banco de dados, o backend vai entrar em execução. 
 
 ### 3.2 Frontend
 
@@ -39,5 +41,5 @@ Para executar o frontend da aplicação abra o terminal no diretório do mesmo e
 
 ## Outras Informações
 
-No diretório 'doc' temos o texto da Monografica referente a este projeto e a apresentação utilizada no dia da banca. 
+No diretório 'doc' temos a apresentação referente a este projeto utilizada no dia da banca. 
 
