@@ -21,21 +21,17 @@ Além disso foram utilizadas algumas outras ferramentas na parte do backend, na 
 - JAXB
 
 
-## 2. Configurando
-
-...
-
-## 3. Executanto a Aplicação
+## 2. Executanto a Aplicação
 
 Para executar a aplicação primeiramente certifique-se que tem as ferramentas de compilação para Angular e Spring Boot instaladas em sua máquina. Além disso, verifique se tem tambem o Node Package Manager(NPM) e o Maven instalados. Caso não tenha faça as instalações necessárias e prossiga com a execução. 
 
-### 3.1 Backend
+### 2.1 Backend
 
 **Obs.: O banco de dados da aplicação está hospedado no GCloud e tem permissão de acesso restringida. Como ele lida com alguns dados extremamente importantes e pessoais relacionados aos servidores da instituição de ensino UFOP, não é possível executar o backend sem uma autorização prévia que deve ser solicitada por email (mateus_lana7@hotmail.com). A solicitação será analisada e caso não haja problemas o acesso será concedido.** 
 
 Para executar o backend da aplicação primeiramente dê um build da mesma por meio da sua IDE de preferência ou abra o terminal no diretório do backend e execute `mvn install`. Em seguida, caso esteja em alguma IDE execute por meio dela, caso contrário execute o comando `mvn spring-boot:run` no terminal. Ao executar, caso o IP da sua máquina esteja resgistrado nas permissões de acesso ao banco de dados, o backend vai entrar em execução. 
 
-### 3.2 Frontend
+### 2.2 Frontend
 
 Para executar o frontend da aplicação abra o terminal no diretório do mesmo e instale as dependências executando o comando `npm install`. Em seguida execute com o comando `ng serve` ou `npm start`.
 
