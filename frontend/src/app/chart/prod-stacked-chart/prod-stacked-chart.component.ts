@@ -17,9 +17,11 @@ export class ProdStackedChartComponent implements OnInit {
   @Input() tipo: String
   producoes: ProducaoBib[]
   graficoRenderizou: Boolean
+  msg: String
 
   constructor(private relevantDataService: RelevantDataService, private unidService: UnidadesService, private deptoService: DepartamentosService, private route: ActivatedRoute) {
     this.graficoRenderizou = false
+    this.msg = ""
   }
 
   ngOnInit() {
@@ -43,8 +45,14 @@ export class ProdStackedChartComponent implements OnInit {
       this.deptoService.producoesBibByIdDepto(this.route.snapshot.params['id'])
         .subscribe((producoes) => {
           this.producoes = producoes
-          this.gerarGraficoProdBib()
-          this.graficoRenderizou = true;
+          if(this.producoes.length > 0){
+            this.gerarGraficoProdBib()
+            this.graficoRenderizou = true
+          }
+          else{
+            this.graficoRenderizou = true;
+            this.msg = "Não há produções bibliográficas registradas nesse departamento!"
+          }
         });
     }
   }

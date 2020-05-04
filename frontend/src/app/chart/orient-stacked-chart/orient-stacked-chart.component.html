@@ -2,5 +2,6 @@
     <h2><b>Orientações Concluídas</b></h2>
     <hr>
     <ua-loading *ngIf="!graficoRenderizou"></ua-loading>
-    <div id="chartContainerOrient" style="height: 370px; width: 100%;"></div>
+    <h2 *ngIf="msg != ''">{{msg}}</h2>
+    <div *ngIf="msg == ''" id="chartContainerOrient" style="height: 370px; width: 100%;"></div>
 </div>

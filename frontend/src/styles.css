@@ -33,19 +33,11 @@ a {
   font-size: 30px;
 }
 
-/*Review*/
-.review-score{
-  font-size: 30px;
-  font-weight: bold;
-}
-
 /* HEADER */
-
 .main-header .navbar {
     background-color: #962038;
 }
 
-/*VER DEPOIS*/
 .nav>li>a:focus, .nav>li>a:hover{
     text-decoration: none;
     background-color: #eee;

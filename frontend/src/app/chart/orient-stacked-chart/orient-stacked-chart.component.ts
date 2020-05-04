@@ -21,9 +21,11 @@ export class OrientStackedChartComponent implements OnInit {
   @Input() tipo: String
   orientacoes: OrientacaoConc[]
   graficoRenderizou: Boolean
+  msg: String
 
   constructor(private relevantDataService: RelevantDataService, private deptoService: DepartamentosService, private unidService: UnidadesService, private route: ActivatedRoute) {
     this.graficoRenderizou = false
+    this.msg = ""
   }
 
   ngOnInit() {
@@ -47,8 +49,14 @@ export class OrientStackedChartComponent implements OnInit {
       this.deptoService.orientacoesConcByIdDepto(this.route.snapshot.params['id'])
         .subscribe((orientacoes) => {
           this.orientacoes = orientacoes
-          this.gerarGraficoOrientacoes()
-          this.graficoRenderizou = true;
+          if(this.orientacoes.length > 0){
+            this.gerarGraficoOrientacoes()
+            this.graficoRenderizou = true;
+          }
+          else{
+            this.graficoRenderizou = true;
+            this.msg = "Não há orientações concluídas registradas nesse departamento!"
+          }
         });
     }
   }

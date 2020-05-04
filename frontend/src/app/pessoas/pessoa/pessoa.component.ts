@@ -32,6 +32,9 @@ export class PessoaComponent implements OnInit {
   producoesBib: ProducaoBib[]
   comandoDoBotao: String
 
+  // reqErro: Boolean
+  // errorMsg: String
+
   constructor(private pessoaService: PessoasService, private route: ActivatedRoute) {
     this.comandoDoBotao = "Visualizar"
   }
@@ -39,7 +42,10 @@ export class PessoaComponent implements OnInit {
 
   ngOnInit() {
   	this.pessoaService.pessoaById(this.route.snapshot.params['id']).subscribe(pessoa => {
-        this.pessoa = pessoa;
+      this.pessoa = pessoa;
+    }, err =>{
+      // this.reqErro = true
+      // this.errorMsg = "Página não encontrada!";
     })
     this.loadPalavrasChaves();
     this.loadAreas();

@@ -1,9 +1,23 @@
-<div class="col-xs-12 col-sm-12 col-md-12">
-    <h2>{{titulo}}</h2>
-    <hr>
-    <div class="card card-body">
-        <!-- <ua-loading></ua-loading> -->
-        <div class="chart-margin" id={{nome}} style="height: 370px; width: 100%;"></div>
-    </div>
+<!-- GRAFICOS TOTAL -->
+<div *ngIf="tipo === 'totalProd'">
+    <ua-prod-stacked-chart [tipo]="'total'"></ua-prod-stacked-chart>
+</div>
+<div *ngIf="tipo === 'totalOrient'">
+    <ua-orient-stacked-chart [tipo]="'total'"></ua-orient-stacked-chart>
 </div>
 
+<!-- GRAFICOS POR UNIDADE -->
+<div *ngIf="tipo === 'unidProd'">
+    <ua-prod-stacked-chart [tipo]="'unid'"></ua-prod-stacked-chart>
+</div>
+<div *ngIf="tipo === 'unidOrient'">
+    <ua-orient-stacked-chart [tipo]="'unid'"></ua-orient-stacked-chart>
+</div>
+
+<!-- GRAFICOS POR DEPARTAMENTO -->
+<div *ngIf="tipo === 'deptoProd'">
+    <ua-prod-stacked-chart [tipo]="'depto'"></ua-prod-stacked-chart>
+</div>
+<div *ngIf="tipo === 'deptoOrient'">
+    <ua-orient-stacked-chart [tipo]="'depto'"></ua-orient-stacked-chart>
+</div>
