@@ -13,6 +13,13 @@ a{
   background-image: url('../../assets/img/logo-ufop/ufop-logo.jpg');
 } */
 
+.active{
+    text-decoration: none;
+    background-color: #eee;
+    border-radius: 5px;
+    color: #555;
+}
+
 .search-bar{
   border-radius: 4px;
   margin-bottom: 5px;

@@ -46,9 +46,10 @@ a {
 }
 
 /*VER DEPOIS*/
-.nav>li>a:focus, .nav>li>a:hover {
+.nav>li>a:focus, .nav>li>a:hover{
     text-decoration: none;
     background-color: #eee;
+    border-radius: 5px;
 }
 
 html, body { height: 100%; }

@@ -11,7 +11,7 @@ import {Area} from './areas/area/area.model'
 import {FormacaoAcademica} from './formacoes-academicas/formacoes-academicas.model'
 import {ProjetoDePesquisa} from './projetos-de-pesquisa/projetos-de-pesquisa.model'
 import {Producoes} from '../producoes/producoes.model'
-import {OrientacaoConc} from '../relevant-data/relevant-data.model'
+import {OrientacaoConc, ProducaoBib} from '../relevant-data/relevant-data.model'
 
 import {UA_API} from '../app.api'
 import {ErrorHandler} from '../app.error-handler'
@@ -60,6 +60,10 @@ export class PessoasService {
 		return this.http.get<Producoes>(`${UA_API}/pessoas/${id}/producoes`).pipe(
 			catchError(ErrorHandler.handleError)
 		);
+	}
+
+	producoesBibByIdPessoa(id: number): Observable<ProducaoBib[]>{
+		return this.http.get<ProducaoBib[]>(`${UA_API}/pessoas/${id}/producoes-bib`)
 	}
 
 	orientacoesByIdPessoa(id: number): Observable<OrientacaoConc[]>{

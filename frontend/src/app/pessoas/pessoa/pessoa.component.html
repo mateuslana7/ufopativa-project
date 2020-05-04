@@ -39,19 +39,23 @@
 				role="button" 
 				aria-expanded="false"
 				aria-controls="expandir"
-				(click)="gerarGraficoOrientacoes()">
+				(click)="gerarGraficoOrientacoes();gerarGraficoProdBib()">
 				{{comandoDoBotao}} Gráficos
 			</a>
 		</div>
 		<hr>
 
-		<!-- GRAFICO DE ORIENTACOES -->
+		
 		<div class="collapse" id="expandirGrafico">
-			<h2><b>Gráfico de Orientações Concluídas</b></h2>
+			<!-- GRAFICO DE PRODUCAO BIBLIOGRAFICA -->
+			<h2><b>Produção Bibliográfica</b></h2>
 			<hr>
-			<div class="card card-body">
-				<div class="chart-margin" id="chartContainer" style="height: 370px; width: 100%; position: relative;"></div>
-			</div>
+			<div id="chartContainerProdBib" style="height: 370px; width: 100%; position: relative;"></div>
+
+			<!-- GRAFICO DE ORIENTACOES -->
+			<h2><b>Orientações Concluídas</b></h2>
+			<hr>
+			<div class="chart-margin" id="chartContainer" style="height: 370px; width: 100%; position: relative;"></div>
 		</div>
 
 		<!-- FORMACOES ACADEMICAS -->

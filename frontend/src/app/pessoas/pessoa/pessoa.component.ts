@@ -9,7 +9,7 @@ import { Producoes } from '../../producoes/producoes.model'
 import { OrientacaoConcluida } from '../orientacoes-concluidas/orientacoes-concluidas.model'
 import { FormacaoAcademica } from '../formacoes-academicas/formacoes-academicas.model'
 import { ProjetoDePesquisa } from '../projetos-de-pesquisa/projetos-de-pesquisa.model'
-import { OrientacaoConc } from 'src/app/relevant-data/relevant-data.model';
+import { OrientacaoConc, ProducaoBib } from 'src/app/relevant-data/relevant-data.model';
 
 import * as CanvasJS from '../../../assets/canvasjs/canvasjs.min';
 // import * as CanvasJS from 'canvasjs/dist/canvasjs.min';
@@ -29,6 +29,7 @@ export class PessoaComponent implements OnInit {
   orientacoesConc: OrientacaoConc[]
   formacoesAcad: FormacaoAcademica[]
   projetosPesq: ProjetoDePesquisa[]
+  producoesBib: ProducaoBib[]
   comandoDoBotao: String
 
   constructor(private pessoaService: PessoasService, private route: ActivatedRoute) {
@@ -44,6 +45,7 @@ export class PessoaComponent implements OnInit {
     this.loadAreas();
     this.loadProducoes();
     this.loadOrientacoes();
+    this.loadProducoesBib();
     this.loadFormacoesAcademicas();
     this.loadProjetosDePesquisa();
   }
@@ -98,6 +100,14 @@ export class PessoaComponent implements OnInit {
       this.orientacoesConc = orientacoesConc
       this.setQuantOrientacoes();
       // this.gerarGraficoOrientacoes();
+    }, err => {
+      //erro na requisicao.
+    })
+  }
+
+  loadProducoesBib(){
+    this.pessoaService.producoesBibByIdPessoa(this.route.snapshot.params['id']).subscribe(producoesBib => {
+      this.producoesBib = producoesBib
     }, err => {
       //erro na requisicao.
     })
@@ -162,6 +172,7 @@ export class PessoaComponent implements OnInit {
 
     var chart = new CanvasJS.Chart("chartContainer", {
     animationEnabled: true,
+    exportEnabled: true,
     backgroundColor: "transparent",
     title: false,
     axisX: {
@@ -217,6 +228,111 @@ export class PessoaComponent implements OnInit {
         str2 = "<span style = \"color:DodgerBlue;\"><strong>"+(e.entries[0].dataPoint.x).getFullYear()+"</strong></span><br/>";
         str3 = "<span style = \"color:Blue\">Total:</span><strong>"+total+"</strong><br/>";
         return (str2.concat(str)).concat(str3);
+    }
+  }
+
+  gerarGraficoProdBib(){
+    var dptsArt = [];
+    var dptsOutras = [];
+    var dptsCapLivro = [];
+    var dptsLivro = [];
+    var dptsTrabEv = [];
+
+    this.producoesBib.map((producoesAno) =>{
+
+      let art = {x: new Date(), y: 0}
+      let outraProd = {x: new Date(), y: 0}
+      let trabEv = {x: new Date(), y: 0}
+      let capLivro = {x: new Date(), y: 0}
+      let livro = {x: new Date(), y: 0}
+
+      art.y = producoesAno.totalArtigos;
+      outraProd.y = producoesAno.totalOutras;
+      trabEv.y = producoesAno.totalTrabsEv;
+      capLivro.y = producoesAno.totalCapsLivro;
+      livro.y = producoesAno.totalLivros;
+
+      if(producoesAno.ano !== null)
+      {
+        art.x = new Date(producoesAno.ano, 0);
+        outraProd.x = new Date(producoesAno.ano, 0);
+        trabEv.x = new Date(producoesAno.ano, 0);
+        capLivro.x = new Date(producoesAno.ano, 0);
+        livro.x = new Date(producoesAno.ano, 0);
+      }
+
+      dptsArt.push(art);
+      dptsOutras.push(outraProd);
+      dptsCapLivro.push(capLivro);
+      dptsLivro.push(livro);
+      dptsTrabEv.push(trabEv);
+    })
+
+    var chart = new CanvasJS.Chart("chartContainerProdBib", {
+      animationEnabled: true,
+      exportEnabled: true,
+      backgroundColor: "transparent",
+      title: false,
+      // axisX: {
+      //   interval: 2,
+      //   intervalType: "year"
+      // },
+      axisY:{
+        gridColor: "#B6B1A8",
+        tickColor: "#B6B1A8"
+      },
+      toolTip: {
+        shared: true,
+        content: toolTipContent
+      },
+      data: [{
+          type: "stackedColumn",
+          showInLegend: true,
+          name: "Trabalhos em Eventos",
+          dataPoints: dptsTrabEv
+        },
+        {        
+          type: "stackedColumn",
+          showInLegend: true,
+          name: "Livros",
+          dataPoints: dptsLivro
+        },
+        {        
+          type: "stackedColumn",
+          showInLegend: true,
+          name: "Capítulos de Livros",
+          dataPoints: dptsCapLivro
+        },
+        {        
+          type: "stackedColumn",
+          showInLegend: true,
+          name: "Outras Produções Bibliográficas",
+          dataPoints: dptsOutras
+        },
+        {        
+          type: "stackedColumn",
+          showInLegend: true,
+          name: "Artigos",
+          dataPoints: dptsArt
+        }
+    ]
+    });
+    setTimeout(() => { chart.render(); }, 300)
+    // chart.render();
+    function toolTipContent(e) {
+      var str = "";
+      var total = 0;
+      var str2, str3;
+      for (var i = 0; i < e.entries.length; i++){
+        if(e.entries[i].dataPoint.y > 0){
+          var  str1 = "<span style= \"color:"+e.entries[i].dataSeries.color + "\"> "+e.entries[i].dataSeries.name+"</span>: <strong>"+e.entries[i].dataPoint.y+"</strong><br/>";
+          total = e.entries[i].dataPoint.y + total;
+          str = str.concat(str1);
+        }
+      }
+      str2 = "<span style = \"color:DodgerBlue;\"><strong>"+(e.entries[0].dataPoint.x).getFullYear()+"</strong></span><br/>";
+      str3 = "<span style = \"color:Blue\">Total:</span><strong>"+total+"</strong><br/>";
+      return (str2.concat(str)).concat(str3);
     }
   }
 
